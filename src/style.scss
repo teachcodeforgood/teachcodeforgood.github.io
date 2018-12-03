@@ -1,0 +1,18 @@
+// colours
+
+$background: #919191;
+
+// mixins
+
+@mixin display-flex() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// actual css
+
+body {
+    background: $background;
+    @include display-flex();
+}
