@@ -1,31 +1,37 @@
 const path = require('path');
-// const webpack = require('webpack');
-
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
+const isDevelopment = process.env.NODE_ENV !== 'production';
+
 module.exports = {
-  entry: './src/app.js',
+  entry: {
+    bundle: './src/app.js',
+  },
   output: {
-    filename: 'bundle.js',
     path: path.resolve(__dirname, '../dist'),
   },
+  devtool: isDevelopment && 'source-map',
   devServer: {
-    contentBase: './src',
-    hot: true,
     port: 3000,
     open: true,
+    contentBase: path.join(__dirname, '../src'),
   },
   module: {
     rules: [
       {
         test: /\.(scss|css)$/,
         use: [
-          CssExtractPlugin.loader,
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: {},
+            options: {
+              sourceMap: isDevelopment,
+              minimize: !isDevelopment,
+            },
           },
           {
             loader: 'postcss-loader',
@@ -33,6 +39,7 @@ module.exports = {
               autoprefixer: {
                 browsers: ['last 2 versions'],
               },
+              sourceMap: isDevelopment,
               plugins: () => [
                 autoprefixer,
               ],
@@ -40,7 +47,9 @@ module.exports = {
           },
           {
             loader: 'sass-loader',
-            options: {},
+            options: {
+              sourceMap: isDevelopment,
+            },
           },
         ],
       },
@@ -82,23 +91,29 @@ module.exports = {
     ],
   },
   plugins: [
-    new CssExtractPlugin({
-      filename: 'style.css',
+    new MiniCssExtractPlugin({
+      filename: '[name]-styles.css',
       chunkFilename: '[id].css',
     }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
-      filename: './dist/index.html',
-      minify: {
+      minify: !isDevelopment && {
+        html5: true,
         collapseWhitespace: true,
-        collapseInlineTagWhitespace: true,
-        minifyCSS: true,
-        minifyURLs: true,
-        minifyJS: true,
+        caseSensitive: true,
         removeComments: true,
-        removeRedundantAttributes: true,
+        removeEmptyElements: true,
       },
     }),
   ],
-
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new UglifyJSPlugin(),
+      new OptimizeCSSAssetsPlugin({
+        cssProcessorOptions: { discardComments: { removeAll: true } },
+        canPrint: true,
+      }),
+    ],
+  },
 };
