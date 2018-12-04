@@ -4,5 +4,6 @@ module.exports = {
         "browser": true,
         "amd": true,
         "node": true,
+        "jquery": true,
     },
 };
