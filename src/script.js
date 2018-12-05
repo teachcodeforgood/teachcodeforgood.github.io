@@ -1,5 +1,6 @@
 const burger = $('.navbar-burger');
 const menu = $('.navbar-menu');
+const menuItems = $(".navbar-item");
 const storiesContainer = $('#stories-container');
 
 const stories = [
@@ -27,6 +28,7 @@ function toggleNavbarState() {
 
 function initNavbar() {
   burger.click(toggleNavbarState);
+  menuItems.click(toggleNavbarState);
 }
 
 function createStory(data) {
