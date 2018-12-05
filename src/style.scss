@@ -21,6 +21,8 @@ $dark: $grey-darkest;
 $text: $grey-lightest;
 $link: $grey-lighter;
 $family-primary: $family-sans-serif;
+$scroll-pos-one: 10vh;
+$scroll-pos-two: 15vh;
 
 // navbar themeing
 
@@ -36,10 +38,15 @@ $navbar-item-hover-color: $grey-darker;
 @import "../node_modules/bulma/sass/elements/title.sass";
 @import "../node_modules/bulma/sass/elements/button.sass";
 @import "../node_modules/bulma/sass/elements/container.sass";
+@import "../node_modules/bulma/sass/elements/image.sass";
+@import "../node_modules/bulma/sass/components/media.sass";
 @import "../node_modules/bulma/sass/components/navbar.sass";
+@import "../node_modules/bulma/sass/components/pagination.sass";
 @import "../node_modules/bulma/sass/components/tabs.sass";
+@import "../node_modules/bulma/sass/components/card.sass";
 @import "../node_modules/bulma/sass/layout/hero.sass";
 @import "../node_modules/bulma/sass/layout/section.sass";
+@import "../node_modules/bulma/sass/grid/columns.sass";
 
 // custom css
 
@@ -72,4 +79,36 @@ $navbar-item-hover-color: $grey-darker;
     100% {
         background-position: 80% 0%;
     }
+}
+
+.scroll-indicator {
+    font-size: 2em;
+    animation: bounce 1s infinite;
+    position: absolute;
+    bottom: $scroll-pos-one;
+    left: 50%;
+    cursor: pointer;
+}
+
+@keyframes bounce {
+    0% {
+        // margin-top: default;
+        bottom: $scroll-pos-one;
+    }
+    50% {
+        // margin-top: 1em;
+        bottom: $scroll-pos-two;
+    }
+    100% {
+        // margin-top: default;
+        bottom: $scroll-pos-one;
+    }
+}
+
+#stories {
+    padding-top: 3.25rem;
+}
+
+#stories-container {
+    overflow-x: auto;
 }
