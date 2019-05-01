@@ -8,6 +8,38 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
+const sassRule = {
+  test: /\.(scss|css)$/,
+  use: [
+    MiniCssExtractPlugin.loader,
+    {
+      loader: 'css-loader?url=false',
+      options: {
+        sourceMap: isDevelopment,
+        minimize: !isDevelopment,
+      },
+    },
+    {
+      loader: 'postcss-loader',
+      options: {
+        autoprefixer: {
+          browsers: ['last 2 versions'],
+        },
+        sourceMap: isDevelopment,
+        plugins: () => [
+          autoprefixer,
+        ],
+      },
+    },
+    {
+      loader: 'sass-loader',
+      options: {
+        sourceMap: isDevelopment,
+      },
+    },
+  ],
+};
+
 module.exports = {
   entry: {
     bundle: './src/app.js',
@@ -23,37 +55,7 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.(scss|css)$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader?url=false',
-            options: {
-              sourceMap: isDevelopment,
-              minimize: !isDevelopment,
-            },
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              autoprefixer: {
-                browsers: ['last 2 versions'],
-              },
-              sourceMap: isDevelopment,
-              plugins: () => [
-                autoprefixer,
-              ],
-            },
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: isDevelopment,
-            },
-          },
-        ],
-      },
+      sassRule,
     ],
   },
   plugins: [
