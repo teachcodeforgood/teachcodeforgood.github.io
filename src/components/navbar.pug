@@ -1,0 +1,45 @@
+-
+  const links = [
+    {
+      name: 'Home',
+      href: '#landing',
+    },
+    {
+      name: 'About Us',
+      href: '#about',
+    },
+    {
+      name: 'Chapters',
+      href: '#chapters',
+    },
+    {
+      name: 'Stories',
+      href: '#stories',
+    },
+    {
+      name: 'Contact Us',
+      href: '#contact',
+    },
+  ]
+
+mixin create-links
+  each link in links
+    a.navbar-item(href=`${link.href}`) #{link.name}
+
+nav.navbar.is-fixed-top
+  .container
+    .navbar-brand
+      a.navbar-item(href="#")
+        img(src="#" alt="TCfG")
+      span#navbar-burger-trigger.navbar-burger.burger(data-target="navbar-menu-opened")
+        span
+        span
+        span
+    #navbar-menu-opened.navbar-menu
+      .navbar-end
+        +create-links
+        span.navbar-item
+          a.button.is-dark.is-inverted
+            span.icon
+              i.fas.fa-hand-holding-heart
+            span Donate

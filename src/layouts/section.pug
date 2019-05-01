@@ -1,0 +1,12 @@
+mixin create-section(sectionId, extraClass)
+  block
+
+  section(id=`${sectionId}`,
+    class=[ 'hero', 'is-fullheight', extraClass ]
+  )
+    .hero-head
+      +headerInstance
+    .hero-body
+      +bodyInstance
+    .hero-foot
+      +footerInstance

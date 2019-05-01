@@ -1,0 +1,42 @@
+include ../../layouts/section
+include ../../layouts/story
+
+-
+  const stories = [
+    {
+      title: 'Imaginative Title 1',
+      story: 'Sed eros augue, blandit vitae dictum eget, gravida eget nibh. Pellentesque elit neque, accumsan non sollicitudin id, ultrices ac nisl. Maecenas tristique vel purus at congue. Sed vel rutrum dolor, et vulputate felis. Nunc porttitor metus augue, quis faucibus odio ultricies sed. Curabitur eleifend purus a odio varius, non suscipit ante tempor. Curabitur placerat quis sem ut volutpat. Ut pretium at eros nec fringilla.',
+      writer: 'Swati Kanwal',
+      image: 'https://via.placeholder.com/320x240.png',
+    },
+    {
+      title: 'Imaginative Title 2',
+      story: 'Sed fermentum nisi vitae lacus tincidunt consectetur. Nam et nibh sit amet tortor facilisis aliquet. Sed tincidunt fermentum est. Proin eget ullamcorper est, non condimentum lorem. Etiam aliquet turpis lacus, ac ornare dolor venenatis nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque purus odio, elementum ac magna et, pharetra vestibulum diam. Curabitur rhoncus mollis sodales.',
+      writer: 'Garvit Ajitsaria',
+      image: 'https://via.placeholder.com/320x240.png',
+    },
+    {
+      title: 'Imaginative Title 3',
+      story: 'Donec et tellus eget lectus accumsan tincidunt. Donec efficitur lacus sollicitudin turpis efficitur placerat et ac mauris. Nulla sit amet scelerisque odio. Sed at laoreet tortor. Nam et ante et lacus commodo efficitur et non nulla. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec et magna feugiat, suscipit metus eu, imperdiet ex. Duis dapibus turpis faucibus dignissim auctor. Aenean gravida nibh sed sodales aliquam.',
+      writer: 'Pashchima Kamal',
+      image: 'https://via.placeholder.com/320x240.png',
+    },
+    {
+      title: 'Imaginative Title 4',
+      story: 'Nullam a purus quis lorem ultrices gravida et eu dui. Nulla mattis, magna at ultricies vehicula, lorem lacus eleifend nunc, et aliquet erat nibh nec lacus. Etiam sit amet nunc odio. Duis id euismod velit, eu congue nibh. Nam iaculis nulla consectetur orci consectetur, et imperdiet erat vestibulum. Maecenas fringilla suscipit turpis sit amet aliquam. Suspendisse laoreet ex sit amet lacus eleifend aliquet.',
+      writer: 'Shreya Kashi',
+      image: 'https://via.placeholder.com/320x240.png',
+    },
+  ]
+
++create-section('stories', null)
+  mixin headerInstance
+    .container
+      h1.title.is-centered Stories
+  mixin bodyInstance
+    .container
+      #stories-container.columns
+        each instance in stories
+          +create-story(instance.image, instance.title, instance.story, instance.writer)
+  mixin footerInstance
+    yield
