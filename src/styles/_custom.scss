@@ -1,0 +1,48 @@
+* {
+  scroll-behavior: smooth;
+}
+
+#landing {
+  background: radial-gradient($grey-darkest, $grey-darker, $grey-darkest);
+  background-size: 4000% 4000%;
+  animation: fancy-gradient 20s ease infinite;
+  position: relative;
+}
+
+#about {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  transition: 200ms ease all;
+  &:hover { 
+      box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)
+  }
+}
+
+#scroll-indicator {
+  font-size: 2em;
+  animation: bounce 1s infinite;
+  position: absolute;
+  bottom: $scroll-pos-one;
+  left: 50%;
+  cursor: pointer;
+}
+
+.hero {
+  padding-top: 3.25rem;
+}
+
+#stories-container {
+  // overflow-x: auto;
+  .card {
+    height: 100%;
+    .card-image {
+      padding: 10px;
+    }
+  }
+}
+
+@include below(md) {
+  * {
+    text-align: center;
+  }
+}
+

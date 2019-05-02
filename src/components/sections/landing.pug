@@ -1,0 +1,11 @@
+include ../../layouts/section
+
++create-section('landing', 'is-dark')
+  mixin headerInstance
+    yield
+  mixin bodyInstance
+    .container.has-text-centered
+      p.title Teach Code for Good
+      p.subtitle Sample Subtitle
+  mixin footerInstance
+    #scroll-indicator.fa.fa-chevron-down
