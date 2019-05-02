@@ -31,12 +31,18 @@
 }
 
 #stories-container {
-  overflow-x: auto;
+  // overflow-x: auto;
   .card {
     height: 100%;
     .card-image {
       padding: 10px;
     }
+  }
+}
+
+@include below(md) {
+  * {
+    text-align: center;
   }
 }
 
