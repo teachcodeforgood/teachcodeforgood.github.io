@@ -32,10 +32,10 @@ include ../../layouts/story
 +create-section('stories', null)
   mixin headerInstance
     .container
-      h1.title.is-centered Stories
+      h1.title Stories
   mixin bodyInstance
     .container
-      #stories-container.columns
+      #stories-container.columns.is-multiline
         each instance in stories
           +create-story(instance.image, instance.title, instance.story, instance.writer)
   mixin footerInstance
