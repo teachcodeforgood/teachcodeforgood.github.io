@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Home",
+        "href": "#landing"
+    },
+    {
+        "name": "About Us",
+        "href": "#about"
+    },
+    {
+        "name": "Chapters",
+        "href": "#chapters"
+    },
+    {
+        "name": "Stories",
+        "href": "#stories"
+    },
+    {
+        "name": "Contact Us",
+        "href": "#contact"
+    }
+]
