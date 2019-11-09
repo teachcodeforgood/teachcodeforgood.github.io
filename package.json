@@ -15,9 +15,9 @@
   },
   "devDependencies": {
     "bulma": "^0.7.4",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.17.2",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
     "pug": "^2.0.4",
     "sass": "^1.23.3"
   },
