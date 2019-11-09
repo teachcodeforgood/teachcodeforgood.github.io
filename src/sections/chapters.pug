@@ -1,10 +1,6 @@
-include ../layouts/section
-
-+create-section('chapters', 'is-dark')
-  mixin headerInstance
-    yield
-  mixin bodyInstance
+section#chapters.hero.is-fullheight.is-dark
+  .hero-head
     .container
       h1.title Local Chapters
-  mixin footerInstance
-    yield
+  .hero-body
+  .hero-foot

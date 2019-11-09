@@ -1,11 +1,8 @@
-include ../layouts/section
-
-+create-section('landing', 'is-dark')
-  mixin headerInstance
-    yield
-  mixin bodyInstance
+section#landing.hero.is-fullheight.is-dark
+  .hero-head
+  .hero-body
     .container.has-text-centered
       p.title Teach Code for Good
       p.subtitle Sample Subtitle
-  mixin footerInstance
+  .hero-foot
     #scroll-indicator.fa.fa-chevron-down

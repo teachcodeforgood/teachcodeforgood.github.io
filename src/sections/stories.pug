@@ -1,14 +1,12 @@
-include ../layouts/section
 include ../layouts/story
 
-+create-section('stories', null)
-  mixin headerInstance
+section#stories.hero.is-fullheight
+  .hero-head
     .container
       h1.title Stories
-  mixin bodyInstance
+  .hero-body
     .container
       #stories-container.columns.is-multiline
         each instance in STORIES_DATA
           +create-story(instance.image, instance.title, instance.story, instance.writer)
-  mixin footerInstance
-    yield
+  .hero-foot
