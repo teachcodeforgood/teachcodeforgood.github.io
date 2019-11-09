@@ -3,11 +3,8 @@ mixin create-story(image,title,story,writer)
     .card
       .card-image
         figure.image.is-4by3
-          img(src=`${image}` alt=`${title}`)
+          img(src=image alt=title)
       .card-content
-        //- .media
-        //-   .media-content
-        //-     p.title.is-4 #{title}
         .content.has-text-grey-darker.is-size-7
           q #{story}
           br
