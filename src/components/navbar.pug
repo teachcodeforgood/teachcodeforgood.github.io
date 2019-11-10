@@ -1,13 +1,13 @@
-nav.navbar.is-fixed-top
+nav.navbar.is-fixed-top(role='navigation' aria-label='main navigation')
   .container
     .navbar-brand
       a.navbar-item(href="#")
         img(src="#" alt="TCfG")
-      span#navbar-burger-trigger.navbar-burger.burger(data-target="navbar-menu-opened")
+      span.navbar-burger.burger(aria-label='menu' aria-expanded='false' data-target='navbar-main')
         span
         span
         span
-    #navbar-menu-opened.navbar-menu
+    .navbar-menu#navbar-main
       .navbar-end
         each link in LINKS_DATA
           a.navbar-item(href=`${link.href}`) #{link.name}
