@@ -1,14 +1,16 @@
-mixin create-story(image,title,story,writer)
-  .column.is-one-third
+mixin create-story(image, title, story, writer)
+  .column.is-4
     .card
       .card-image
         figure.image.is-4by3
           img(src=image alt=title)
       .card-content
+        .media
+          .media-content
+            p.title.is-6 #{writer}
+            p.subtitle.is-7 #{title}
         .content.has-text-grey-darker.is-size-7
           q #{story}
-          br
-          i -#{writer}
 
 
 
